@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax_plus/iconsax_plus.dart';
 import 'package:taxi_test_app/style/app_colors.dart';
 import 'package:taxi_test_app/style/app_text_style.dart';
+import 'package:taxi_test_app/widgets/bottom_sheet/app_bottom_sheet.dart';
 import 'package:taxi_test_app/widgets/bottom_sheet/bottom_sheet_checkout_button.dart';
 import 'package:taxi_test_app/widgets/bottom_sheet/bottom_sheet_tab_bar.dart';
 import 'package:taxi_test_app/widgets/bottom_sheet/delivery_card.dart';
@@ -42,51 +43,7 @@ class _SessionState extends State<SessionPage> {
           barrierColor: AppColors.bottomSheetBarier,
           context: context,
           builder: (builder) {
-            return Container(
-              height: 484.0,
-              decoration: const BoxDecoration(
-                  boxShadow: const [
-                    BoxShadow(
-                        color: Colors.black54,
-                        blurRadius: 20,
-                        offset: Offset(5, 10),
-                        spreadRadius: 0.1,
-                        blurStyle: BlurStyle.normal),
-                  ],
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(24.0),
-                      topRight: Radius.circular(24.0))),
-              child: const Column(
-                children: [
-                  BottomSheetTabBar(),
-                  Padding(padding: EdgeInsets.all(6)),
-                  BottomSheetRouteWindow(),
-                  Padding(padding: EdgeInsets.all(6)),
-                  Padding(
-                    padding: EdgeInsets.only(left: 20, bottom: 24),
-                    child: Row(
-                      children: [
-                        DeliveryCard(
-                          asset: 'assets/delivery_dard_on_foot.png',
-                          deliveryMethod: 'Пешком',
-                          cost: 550,
-                          assetPadding: EdgeInsets.only(bottom: 53, left: 14),
-                        ),
-                        Padding(padding: EdgeInsets.all(4)),
-                        DeliveryCard(
-                          asset: 'assets/delivery_card_car.png',
-                          deliveryMethod: 'Легковая',
-                          cost: 330,
-                          assetPadding: EdgeInsets.only(bottom: 62, left: 8),
-                        )
-                      ],
-                    ),
-                  ),
-                  BottomSheetCheckoutButton()
-                ],
-              ),
-            );
+            return AppBottomSheet();
           });
     });
     _init();
